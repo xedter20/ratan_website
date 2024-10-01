@@ -9,7 +9,7 @@ import { router } from "./Routes/Routes";
 import "@smastrom/react-rating/style.css";
 import "./index.css";
 
-import Facebook from "./components/Facebook";
+// import Facebook from "./components/Facebook";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -20,7 +20,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Toaster />
         </FavouriteProvider>
       </CartProvider>
-      <Facebook />
+
     </AuthProvider>
   </React.StrictMode>,
 );

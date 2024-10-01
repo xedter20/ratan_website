@@ -127,7 +127,7 @@ const Navbar = () => {
 
           {/* Mobile Cart & Favourite Button */}
           <ul className="flex gap-4 md:hidden">
-            <li className="relative">
+            {/* <li className="relative">
               <Link to="/favourite">
                 <BsHeart size={18} className={isHomePage && "text-white"} />
                 {favouriteItems && favouriteItems.length > 0 && (
@@ -136,7 +136,7 @@ const Navbar = () => {
                   </p>
                 )}
               </Link>
-            </li>
+            </li> */}
             <li className="relative">
               {user ? (
                 <Link to="/cart">
@@ -250,7 +250,7 @@ const Navbar = () => {
           </li>
           {user && !isAdmin && (
             <>
-              <li className="relative">
+              {/* <li className="relative">
                 <Link to="/favourite">
                   <BsHeart
                     className={`cursor-pointer text-2xl lg:text-[23px] ${isHomePage && "text-white"}`}
@@ -261,7 +261,7 @@ const Navbar = () => {
                     </p>
                   )}
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <SidebarCart user={user} isHomePage={isHomePage} />
               </li>

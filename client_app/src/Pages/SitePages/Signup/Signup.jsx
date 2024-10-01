@@ -82,7 +82,7 @@ const Signup = () => {
         {/* form */}
         <div className="mt-6">
           <form onSubmit={handleSubmit(onSubmit)}>
-            <h1 className="text-4xl font-semibold">Furnish Your Space</h1>
+            <h1 className="text-4xl font-semibold">Register</h1>
             <p className="text-cadetGray mt-2 text-xl italic">Join Us Today</p>
 
             <label
@@ -123,8 +123,7 @@ const Signup = () => {
             >
               {errors.password ? (
                 <span className="text-sm text-red-500">
-                  Password must be min 8 characters & include at least one
-                  uppercase and one number*
+                  Password is required
                 </span>
               ) : (
                 "Password"

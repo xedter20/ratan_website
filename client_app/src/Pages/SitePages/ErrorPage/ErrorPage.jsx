@@ -20,7 +20,7 @@ const ErrorPage = () => {
 
                 <motion.button whileTap={{ scale: 0.9 }}>
                   <Link to="/" className="link_404">
-                    Return to UrbanAura
+                    Return to HandiHub
                   </Link>
                 </motion.button>
               </div>

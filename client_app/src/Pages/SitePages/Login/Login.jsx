@@ -44,17 +44,6 @@ const Login = () => {
     reset();
   };
 
-  // demo login function to fill up email, password and submit the form
-  const handleDemoLogin = () => {
-    setValue("email", "walter@white.com");
-    setValue("password", "Asdf1234");
-  };
-
-  // demo login function as admin
-  const handleDemoAdminLogin = () => {
-    setValue("email", "admin@urbanaura.com");
-    setValue("password", "Asdf1234");
-  };
 
   // google login
   const handleGoogleLogin = () => {
@@ -88,17 +77,17 @@ const Login = () => {
 
         </Link>
         {/* form */}
-        <div className="mt-6">
+        <div className="mt-6 shadow-2xl p-5">
           <form onSubmit={handleSubmit(onSubmit)}>
-            <h1 className="text-4xl font-semibold">Welcome Back</h1>
-            <p className="text-cadetGray text-xl italic">Enter you details</p>
+            <h1 className="text-4xl font-semibold">Login</h1>
+            {/* <p className="text-cadetGray text-xl italic">Enter you details</p> */}
 
             <label
               htmlFor="email"
               className="text-cadetGray mb-2 mt-10 block w-full"
             >
               {errors.email ? (
-                <span className="text-red-500">Email is required*</span>
+                <span className="text-red-500">Email is required</span>
               ) : (
                 "Email"
               )}
@@ -115,8 +104,7 @@ const Login = () => {
             >
               {errors.password ? (
                 <span className="text-sm text-red-500">
-                  Password must be min 8 characters & include at least one
-                  uppercase and one number*
+                  Password is required
                 </span>
               ) : (
                 "Password"
@@ -128,7 +116,7 @@ const Login = () => {
               id="password"
               {...register("password", {
                 required: true,
-                pattern: /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/,
+                // pattern: /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/,
               })}
             />
 
@@ -149,12 +137,12 @@ const Login = () => {
           </form>
 
           {/* divider and other login buttons */}
-          <div className="text-cadetGray mb-4 mt-8 flex items-center gap-2.5">
+          {/* <div className="text-cadetGray mb-4 mt-8 flex items-center gap-2.5">
             <div className="bg-cadetGray h-0.5 w-full"></div>
             <p className="">OR</p>
             <div className="bg-cadetGray h-0.5 w-full"></div>
-          </div>
-          <button
+          </div> */}
+          {/* <button
             onClick={handleGoogleLogin}
             disabled={loading}
             className={`my-4 flex w-full items-center justify-center gap-3 rounded-[10px] border py-2 text-lg ${loading ? "text-cadetGray" : "transition-all hover:bg-primary hover:text-white"}`}
@@ -166,8 +154,8 @@ const Login = () => {
               loading="lazy"
             />
             <p>Login With Google</p>
-          </button>
-          <button
+          </button> */}
+          {/* <button
             onClick={handleDemoLogin}
             disabled={loading}
             className={`my-4 flex w-full items-center justify-center gap-3 rounded-[10px] border py-2 text-lg ${loading ? "text-cadetGray" : "transition-all hover:bg-primary hover:text-white"}`}
@@ -177,8 +165,8 @@ const Login = () => {
               color={loading ? "#9f9f9f" : undefined}
             />
             <p>Login as a Guest</p>
-          </button>
-          <button
+          </button> */}
+          {/* <button
             onClick={handleDemoAdminLogin}
             disabled={loading}
             className={`flex w-full items-center justify-center gap-3 rounded-[10px] border py-2 text-lg ${loading ? "text-cadetGray" : "transition-all hover:bg-primary hover:text-white"}`}
@@ -188,7 +176,7 @@ const Login = () => {
               color={loading ? "#9f9f9f" : "#b88e2f"}
             />
             <p>Login as Demo Admin</p>
-          </button>
+          </button> */}
         </div>
       </div>
       {/* image container */}

@@ -49,7 +49,7 @@ const AccountSettings = () => {
   //       const url = `https://api.imgbb.com/1/upload?key=${
   //         import.meta.env.VITE_Image_Upload_API_Key
   //       }`;
-  // ad,
+
   //       })
   //         .then((res) => res.json())
   //         .then((imageData) => {
@@ -142,7 +142,7 @@ const AccountSettings = () => {
           <BsPersonGear size={22} />
           My Profile
         </p>
-        <p
+        {/* <p
           onClick={() => setActiveTab("settings")}
           className={`flex w-1/2 cursor-pointer items-center justify-center gap-1.5 border-b-2 pb-2 font-semibold transition-all ${activeTab === "settings"
             ? "border-primary text-primary"
@@ -151,12 +151,12 @@ const AccountSettings = () => {
         >
           <BsGear size={18} />
           Advance
-        </p>
+        </p> */}
       </div>
 
       {/* Conditionally render tab content */}
       {activeTab === "profile" && (
-        <form onSubmit={handleUpdateProfile}>
+        <form >
           <div className="flex flex-col items-center gap-10 pb-40 pt-20 md:flex-row-reverse md:items-start md:justify-evenly md:gap-20">
             {/* Profile Image */}
             <div className="text-center">

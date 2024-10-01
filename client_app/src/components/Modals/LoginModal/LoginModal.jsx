@@ -154,7 +154,7 @@ const LoginModal = ({ isOpen, setIsOpen }) => {
                 />
                 <p>Login With Google</p>
               </button>
-              <button
+              {/* <button
                 disabled={loading}
                 onClick={handleDemoLogin}
                 className={`my-4 flex w-full items-center justify-center gap-3 rounded-[10px] border px-3 py-2 text-lg md:px-6 ${loading ? "text-cadetGray" : "transition-all hover:bg-primary hover:text-white"}`}
@@ -164,8 +164,8 @@ const LoginModal = ({ isOpen, setIsOpen }) => {
                   color={loading ? "#9f9f9f" : undefined}
                 />
                 <p>Login as a Guest</p>
-              </button>
-              <button
+              </button> */}
+              {/* <button
                 disabled={loading}
                 onClick={handleDemoAdminLogin}
                 className={`flex w-full items-center justify-center gap-3 rounded-[10px] border px-3 py-2 text-lg md:px-6 ${loading ? "text-cadetGray" : "transition-all hover:bg-primary hover:text-white"}`}
@@ -175,7 +175,7 @@ const LoginModal = ({ isOpen, setIsOpen }) => {
                   color={loading ? "#9f9f9f" : "#b88e2f"}
                 />
                 <p>Login as Demo Admin</p>
-              </button>
+              </button> */}
               <p className="text-cadetGray mb-8 mt-6 text-center text-sm">
                 Don&apos;t have account?{" "}
                 <Link to="/signup" className="text-medium text-primary">

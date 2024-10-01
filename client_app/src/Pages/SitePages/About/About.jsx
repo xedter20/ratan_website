@@ -16,7 +16,7 @@ const About = () => {
           {/* our values images */}
           <div className="mb-10 flex min-h-80 w-full justify-center md:mb-0 md:w-1/2">
             <div className="relative w-full">
-              <img
+              {/* <img
                 className="absolute left-0 top-0 h-60 w-52 rounded-md object-cover object-center shadow-lg md:w-56 lg:h-80 lg:w-72 xl:h-96 xl:w-80"
                 src={img2}
                 alt="urbanAura board room"
@@ -27,7 +27,7 @@ const About = () => {
                 src={img1}
                 alt="urbanAura employee"
                 loading="lazy"
-              />
+              /> */}
             </div>
           </div>
           {/* our values details */}
@@ -81,12 +81,12 @@ const About = () => {
           </div>
           {/* our mission delivery guy img */}
           <div className="mt-10 w-full md:mt-0 md:w-1/2">
-            <img
+            {/* <img
               className="w-[340px] rounded-md"
               src={img3}
               alt="urbanAura delivery"
               loading="lazy"
-            />
+            /> */}
           </div>
         </div>
       </div>
