@@ -6,8 +6,10 @@ export default class Example extends Component {
   render() {
     return (
       <MessengerCustomerChat
-        pageId="1759059694904661"
+        pageId="475349145651536"
         appId="3743325502590900"
+        themeColor="#0084ff"
+        greetingDialogDisplay="show"
       />
     );
   }
