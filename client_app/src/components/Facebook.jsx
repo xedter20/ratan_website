@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
-import { FacebookProvider, MessageUs, CustomChat } from 'react-facebook';
+import ReactDOM from 'react-dom';
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 
 export default class Example extends Component {
   render() {
     return (
-      <FacebookProvider appId="1759059694904661" chatSupport>
-        <CustomChat pageId="475349145651536" minimized={true} />
-      </FacebookProvider>
+      <MessengerCustomerChat
+        pageId="1759059694904661"
+        appId="1759059694904661"
+        htmlRef="<REF_STRING>"
+      />
     );
   }
 }
+
