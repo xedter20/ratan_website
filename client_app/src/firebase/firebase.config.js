@@ -1,12 +1,13 @@
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_apiKey,
-  authDomain: import.meta.env.VITE_authDomain,
-  projectId: import.meta.env.VITE_projectId,
-  storageBucket: import.meta.env.VITE_storageBucket,
-  messagingSenderId: import.meta.env.VITE_messagingSenderId,
-  appId: import.meta.env.VITE_appId,
+  apiKey: "AIzaSyCmgWeuOcredGzeg-KR58Po6GeNaokRRo4",
+  authDomain: "ratan-eccomerce.firebaseapp.com",
+  projectId: "ratan-eccomerce",
+  storageBucket: "ratan-eccomerce.appspot.com",
+  messagingSenderId: "423849454417",
+  appId: "1:423849454417:web:7e5c1f9a69fa20ea738170",
+  measurementId: "G-MELXH9Z5F6",
 };
 
 export const app = initializeApp(firebaseConfig);
