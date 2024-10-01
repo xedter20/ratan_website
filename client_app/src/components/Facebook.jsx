@@ -7,7 +7,7 @@ export default class Example extends Component {
     return (
       <MessengerCustomerChat
         pageId="475349145651536"
-        appId="3743325502590900"
+        appId="1759059694904661"
         themeColor="#0084ff"
         greetingDialogDisplay="show"
       />
