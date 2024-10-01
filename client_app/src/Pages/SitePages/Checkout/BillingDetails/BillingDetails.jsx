@@ -82,7 +82,7 @@ const BillingDetails = () => {
                   {...register("lastName", { required: true })}
                 />
               </div>
-            {/* <div>
+              {/* <div>
               <label
                 htmlFor="country"
                 className="mb-5 inline-block font-medium"
@@ -101,59 +101,59 @@ const BillingDetails = () => {
                 <option value="france">France</option>
               </select>
             </div> */}
-            <div>
-              <label
-                htmlFor="city"
-                className={`${errors.city && "text-red-600"} font-medium" mb-5 inline-block`}
-              >
-                City {errors.city && "*"}
-              </label>
-              <br />
-              <input
-                className="border-cadetGray h-[75px] w-full rounded-[10px] border px-5 outline-none"
-                type="text"
-                id="city"
-                {...register("city", { required: true })}
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="street"
-                className={`${errors.street && "text-red-600"} font-medium" mb-5 inline-block`}
-              >
-                Street address {errors.street && "*"}
-              </label>
-              <br />
-              <input
-                className="border-cadetGray h-[75px] w-full rounded-[10px] border px-5 outline-none"
-                type="text"
-                id="street"
-                {...register("street", { required: true })}
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="phone"
-                className={`${errors.phone && "text-red-600"} font-medium" mb-5 inline-block`}
-              >
-                Phone {errors.phone && "*"}
-              </label>
-              <br />
-              <input
-                className="border-cadetGray h-[75px] w-full rounded-[10px] border px-5 outline-none"
-                type="tel"
-                id="phone"
-                {...register("phone", { required: true })}
-              />
-            </div>
-            <div>
-              <textarea
-                className="border-cadetGray h-[75px] w-full rounded-[10px] border px-5 py-6 outline-none"
-                id="add_info"
-                placeholder="Additional information"
-                {...register("add_info")}
-              ></textarea>
-            </div>
+              <div>
+                <label
+                  htmlFor="city"
+                  className={`${errors.city && "text-red-600"} font-medium" mb-5 inline-block`}
+                >
+                  City {errors.city && "*"}
+                </label>
+                <br />
+                <input
+                  className="border-cadetGray h-[75px] w-full rounded-[10px] border px-5 outline-none"
+                  type="text"
+                  id="city"
+                  {...register("city", { required: true })}
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="street"
+                  className={`${errors.street && "text-red-600"} font-medium" mb-5 inline-block`}
+                >
+                  Street address {errors.street && "*"}
+                </label>
+                <br />
+                <input
+                  className="border-cadetGray h-[75px] w-full rounded-[10px] border px-5 outline-none"
+                  type="text"
+                  id="street"
+                  {...register("street", { required: true })}
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="phone"
+                  className={`${errors.phone && "text-red-600"} font-medium" mb-5 inline-block`}
+                >
+                  Phone {errors.phone && "*"}
+                </label>
+                <br />
+                <input
+                  className="border-cadetGray h-[75px] w-full rounded-[10px] border px-5 outline-none"
+                  type="tel"
+                  id="phone"
+                  {...register("phone", { required: true })}
+                />
+              </div>
+              <div>
+                <textarea
+                  className="border-cadetGray h-[75px] w-full rounded-[10px] border px-5 py-6 outline-none"
+                  id="add_info"
+                  placeholder="Additional information"
+                  {...register("add_info")}
+                ></textarea>
+              </div>   </div>
           </form>
 
           {/* Cart Items and Price Details */}
