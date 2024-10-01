@@ -8,7 +8,6 @@ export default class Example extends Component {
       <MessengerCustomerChat
         pageId="1759059694904661"
         appId="1759059694904661"
-        htmlRef="<REF_STRING>"
       />
     );
   }
