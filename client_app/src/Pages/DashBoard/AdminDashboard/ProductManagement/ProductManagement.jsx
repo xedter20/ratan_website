@@ -49,7 +49,7 @@ const ProductManagement = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/products?sortBy=${sortValue}`)
+      .get(`${import.meta.env.VITE_REACT_APP_API_END_POINT}/products?sortBy=${sortValue}`)
       .then((res) => {
         setProducts(res.data);
         setTotalPages(Math.ceil(res.data.length / 5));

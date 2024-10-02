@@ -62,7 +62,7 @@ const Navbar = () => {
       return setSearchResults([]);
     } else {
       axios
-        .get(`http://localhost:5000/api/products/search/${debouncedSearchValue}`)
+        .get(`${import.meta.env.VITE_REACT_APP_API_END_POINT}/products/search/${debouncedSearchValue}`)
         .then((res) => setSearchResults(res.data))
         .catch((err) => console.error(err));
     }

@@ -15,8 +15,8 @@ const useProducts = (initialUrl) => {
   const endIndex = startIndex + itemsPerPage;
 
   const url = initialUrl
-    ? `http://localhost:5000/api/products${initialUrl}`
-    : `http://localhost:5000/api/products`;
+    ? `${import.meta.env.VITE_REACT_APP_API_END_POINT}/products${initialUrl}`
+    : `${import.meta.env.VITE_REACT_APP_API_END_POINT}/products`;
 
   console.log({ url });
   /* get products */

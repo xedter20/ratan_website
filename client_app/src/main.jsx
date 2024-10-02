@@ -10,6 +10,10 @@ import "@smastrom/react-rating/style.css";
 import "./index.css";
 
 // import Facebook from "./components/Facebook";
+import initializeApp from './init';
+// Initializing different libraries
+initializeApp();
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
