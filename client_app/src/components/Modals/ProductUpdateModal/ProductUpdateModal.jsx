@@ -120,7 +120,7 @@ const ProductUpdateModal = ({
                     htmlFor="price"
                     className="text-cadetGray mb-2 mt-10 block w-full"
                   >
-                    Price <span className="text-xs">($USD)</span>
+                    Price <span className="text-xs">PHP</span>
                   </label>
                   <input
                     className="block w-full rounded-[10px] border px-3 py-2 text-gray-500 outline-none focus:border-gray-500 focus:text-black"
