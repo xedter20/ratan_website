@@ -23,7 +23,7 @@ import { formatPrice } from "../../../../utils/formatPrice";
 
 
 
-import Datepicker from "react-tailwindcss-datepicker";
+// import Datepicker from "react-tailwindcss-datepicker";
 const Dashboard = () => {
   const [value, setValue] = useState({
     startDate: null,
@@ -41,9 +41,9 @@ const Dashboard = () => {
 
       <div className="grid grid-cols-6 gap-4 mb-5">
         <div>
-          <Datepicker
+          {/* <Datepicker
 
-            placeholder="Select Date" value={value} onChange={newValue => setValue(newValue)} />
+            placeholder="Select Date" value={value} onChange={newValue => setValue(newValue)} /> */}
         </div>
       </div>
 
