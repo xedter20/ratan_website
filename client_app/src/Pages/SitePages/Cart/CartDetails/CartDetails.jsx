@@ -73,7 +73,7 @@ const CartDetails = () => {
                             </motion.p>
                           </td>
                           <td>
-                            <p className="text-cadetGray">${item.price}</p>
+                            <p className="text-cadetGray">{formatPrice(item.price)}</p>
                           </td>
                           <td>
                             <div className="flex items-center gap-3">

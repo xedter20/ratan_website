@@ -111,7 +111,33 @@ const PaymentModal = ({
       });
 
 
-    console.log(data)
+    const optionsGetLink = {
+      method: 'GET',
+      url: `https://api.paymongo.com/v1/links?reference_number=${data.attributes.reference_number}`,
+      headers: {
+        accept: 'application/json',
+        'content-type': 'application/json',
+        authorization: 'Basic c2tfdGVzdF9TV0RVZzVjYzNDbnZZd2FnNnpWdGtueXo6'
+      },
+    };
+
+
+    // console.log({ data })
+
+    const result = await axios
+      .request(optionsGetLink)
+      .then(function (response) {
+        return response.data;
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+
+
+    console.log(result.data[0].attributes.status)
+
+
+
 
     let { attributes } = data;
     let newPageUrl = attributes.checkout_url;

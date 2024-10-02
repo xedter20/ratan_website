@@ -58,6 +58,23 @@ async function run() {
     app.use('/api/users', userRoutes());
     app.use('/api/payments', paymentRoutes());
 
+    app.post('/webhook/paymongo', (req, res) => {
+      // The event data will be in req.body
+      const event = req.body;
+
+      // Process the event based on its type
+      if (event.type === 'source.chargeable') {
+        // Handle the event when a source becomes chargeable
+        console.log('Source is chargeable:', event.data);
+      } else if (event.type === 'payment.paid') {
+        // Handle successful payment event
+        console.log('Payment is successful:', event.data);
+      }
+
+      // Respond with a 200 status code to acknowledge receipt of the event
+      res.status(200).send({ received: true });
+    });
+
     // JWT Token API
     app.post('/jwt', (req, res) => {
       const user = req.body;
