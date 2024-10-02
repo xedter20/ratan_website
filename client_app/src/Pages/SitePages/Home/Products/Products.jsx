@@ -10,7 +10,7 @@ const Products = () => {
 
   const getProducts = () => {
     axios
-      .get("http://localhost:5000/api/products?sortBy=desc")
+      .get(`/products?sortBy=desc`)
       .then((res) => {
         setLoading(false);
         setProducts(res.data);

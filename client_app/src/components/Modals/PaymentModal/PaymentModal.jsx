@@ -54,17 +54,17 @@ const PaymentModal = ({
     };
 
     await axiosSecure
-      .post("api/orders", orderInfo, { params: { userEmail: user.email } })
+      .post("/orders", orderInfo, { params: { userEmail: user.email } })
       .then((res) => {
-        // if (
-        //   res.data.insertResult.insertedId &&
-        //   res.data.deleteResult.deletedCount > 0
-        // ) {
-        //   setIsOpen(false);
-        //   toast.success("Payment successful! Thank you for your purchase.");
-        //   setCart([]);
-        //   navigate("/");
-        // }
+        if (
+          res.data.insertResult.insertedId &&
+          res.data.deleteResult.deletedCount > 0
+        ) {
+          setIsOpen(false);
+          toast.success("Payment successful! Thank you for your purchase.");
+          setCart([]);
+          navigate("/");
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -314,16 +314,16 @@ const PaymentModal = ({
                   <div className="mt-14 space-y-4 border-b pb-2 text-sm">
                     <div className="flex items-center justify-between">
                       <p>Subtotal</p>
-                      <p>${formatPrice(totalPrice)}</p>
+                      <p>{formatPrice(totalPrice)}</p>
                     </div>
-                    <div className="flex items-center justify-between">
+                    {/* <div className="flex items-center justify-between">
                       <p>Sales tax</p>
                       <p>$0.00</p>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="mb-10 mt-2 flex items-center justify-between text-sm font-semibold">
                     <p>Total</p>
-                    <p>${formatPrice(totalPrice)}</p>
+                    <p>{formatPrice(totalPrice)}</p>
                   </div>
 
                   <button

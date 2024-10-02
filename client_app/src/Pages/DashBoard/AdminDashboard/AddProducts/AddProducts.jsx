@@ -30,7 +30,7 @@ const AddProducts = () => {
   // Add New Product Function
   const addNewProduct = async (newProduct) => {
     try {
-      const res = await axiosSecure.post("api/admin/products", newProduct, {
+      const res = await axiosSecure.post("/admin/products", newProduct, {
         params: { userEmail: user?.email },
       });
       if (res.data.acknowledged && res.data.insertedId) {

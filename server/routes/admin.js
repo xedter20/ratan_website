@@ -7,21 +7,28 @@ module.exports = (ordersCollection, productsCollection) => {
   const router = express.Router();
 
   // Get all orders
-  router.get('/orders', verifyJWT, verifyAdmin, async (req, res) => {
-    try {
-      const result = await ordersCollection.find().sort({ date: -1 }).toArray();
-      res.send(result);
-    } catch (err) {
-      console.log('error getting all orders:', err);
-      res.status(500).json({ error: 'Internal Server Error' });
+  router.get(
+    '/orders',
+    // verifyJWT, verifyAdmin,
+    async (req, res) => {
+      try {
+        const result = await ordersCollection
+          .find()
+          .sort({ date: -1 })
+          .toArray();
+        res.send(result);
+      } catch (err) {
+        console.log('error getting all orders:', err);
+        res.status(500).json({ error: 'Internal Server Error' });
+      }
     }
-  });
+  );
 
   // Update order status
   router.put(
     '/orders/:orderId/status',
-    verifyJWT,
-    verifyAdmin,
+    // verifyJWT,
+    // verifyAdmin,
     async (req, res) => {
       try {
         const { orderId } = req.params;
@@ -77,17 +84,21 @@ module.exports = (ordersCollection, productsCollection) => {
   );
 
   // Delete a single product from the products
-  router.delete('/products/:id', verifyJWT, verifyAdmin, async (req, res) => {
-    try {
-      const id = req.params.id;
-      const query = { _id: new ObjectId(id) };
-      const result = await productsCollection.deleteOne(query);
-      res.send(result);
-    } catch (err) {
-      console.log('Error deleting product:', err);
-      res.status(500).json({ error: 'Internal Server Error' });
+  router.delete(
+    '/products/:id',
+    // verifyJWT, verifyAdmin,
+    async (req, res) => {
+      try {
+        const id = req.params.id;
+        const query = { _id: new ObjectId(id) };
+        const result = await productsCollection.deleteOne(query);
+        res.send(result);
+      } catch (err) {
+        console.log('Error deleting product:', err);
+        res.status(500).json({ error: 'Internal Server Error' });
+      }
     }
-  });
+  );
 
   return router;
 };

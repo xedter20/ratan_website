@@ -95,7 +95,7 @@ const Card = ({ product }) => {
             onClick={() => handleModal(product)}
             className="z-20 w-4/5 bg-white py-3 font-medium text-primary transition-all hover:bg-primary hover:text-white"
           >
-            Add to carts
+            Add to cart
           </button>
           <div className="z-20 flex w-4/5 flex-wrap items-center justify-between gap-1 text-center font-semibold text-white">
             <Link

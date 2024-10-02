@@ -15,8 +15,8 @@ const useProducts = (initialUrl) => {
   const endIndex = startIndex + itemsPerPage;
 
   const url = initialUrl
-    ? `${import.meta.env.VITE_REACT_APP_API_END_POINT}/products${initialUrl}`
-    : `${import.meta.env.VITE_REACT_APP_API_END_POINT}/products`;
+    ? `/products${initialUrl}`
+    : `/products`;
 
   console.log({ url });
   /* get products */
@@ -47,9 +47,9 @@ const useProducts = (initialUrl) => {
         } else if (sortType === "priceDesc") {
           return priceB - priceA;
         } else if (sortType === "desc") {
-          getProducts("http://localhost:5000/api/products?sortBy=desc");
+          getProducts(`/products?sortBy=desc`);
         } else if (sortType === "asc") {
-          getProducts("http://localhost:5000/api/products?sortBy=asc");
+          getProducts(`/products?sortBy=asc`);
         } else {
           return 0;
         }

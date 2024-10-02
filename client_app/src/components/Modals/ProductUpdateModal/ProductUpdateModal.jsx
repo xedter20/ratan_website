@@ -21,7 +21,7 @@ const ProductUpdateModal = ({
   const handleProductUpdate = async (updatedProduct) => {
     try {
       const res = await axiosSecure.put(
-        `api/admin/products/${product._id}`,
+        `/admin/products/${product._id}`,
         updatedProduct,
         { params: { userEmail: user?.email } },
       );

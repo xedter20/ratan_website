@@ -18,6 +18,7 @@ module.exports = (ordersCollection, cartsCollection) => {
           return res.status(400).json({ error: 'invalid email' });
         }
 
+        console.log({ dex: true, email });
         const query = { email: email };
         const result = await ordersCollection
           .find(query)
@@ -39,19 +40,21 @@ module.exports = (ordersCollection, cartsCollection) => {
       try {
         const orderInfo = req.body;
 
-        // Save the orderInfo into the orders collection
+        console.log({ orderInfo });
+
+        //Save the orderInfo into the orders collection
         const insertResult = await ordersCollection.insertOne(orderInfo);
 
         console.log({ insertResult });
-        // if (insertResult.insertedId) {
-        //   const deleteResult = await cartsCollection.deleteMany({
-        //     user_email: orderInfo.email
-        //   });
+        if (insertResult.insertedId) {
+          const deleteResult = await cartsCollection.deleteMany({
+            user_email: orderInfo.email
+          });
 
-        //   res.send({ insertResult, deleteResult });
-        // } else {
-        //   throw new Error('Failed to insert payment');
-        // }
+          res.send({ insertResult, deleteResult });
+        } else {
+          throw new Error('Failed to insert payment');
+        }
       } catch (err) {
         console.log('Error saving payments and deleting cart items:', err);
         res.status(500).json({ error: 'Internal Server Error' });

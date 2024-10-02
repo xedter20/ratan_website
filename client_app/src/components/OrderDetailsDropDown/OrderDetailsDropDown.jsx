@@ -8,9 +8,7 @@ const OrderDetailsDropDown = ({ order }) => {
         <th>Item</th>
         <th>Price</th>
         <th>Quantity</th>
-        <th>Size</th>
-        <th>Color</th>
-        <th colSpan="3"></th>
+
       </tr>
       {order.items &&
         order.items.length > 0 &&
@@ -35,17 +33,10 @@ const OrderDetailsDropDown = ({ order }) => {
                 {item.title}
               </Link>
             </td>
-            <td>${formatPrice(item.price)}</td>
+            <td>{formatPrice(item.price)}</td>
             <td>{item.quantity}</td>
-            <td>{item.size}</td>
-            <td>
-              <div
-                style={{ backgroundColor: item.color }}
-                className="tooltip size-4 rounded-full"
-                data-tip={item.color}
-              ></div>
-            </td>
-            <td colSpan="3"></td>
+
+
           </tr>
         ))}
     </>

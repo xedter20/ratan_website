@@ -4,8 +4,6 @@ const initializeApp = () => {
   // Setting base URL for all API request via axios
   axios.defaults.baseURL = `${import.meta.env.VITE_REACT_APP_API_END_POINT}/api`;
 
-  console.log({ api: import.meta.env.VITE_REACT_APP_API_END_POINT });
-
   if (!import.meta.env.NODE_ENV || import.meta.env.NODE_ENV === "development") {
     // dev code
   } else {

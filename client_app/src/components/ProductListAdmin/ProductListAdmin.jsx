@@ -21,7 +21,7 @@ const ProductListAdmin = ({
   // delete a product
   const handleDeleteProduct = async (id) => {
     try {
-      const res = await axiosSecure.delete(`api/admin/products/${id}`, {
+      const res = await axiosSecure.delete(`/admin/products/${id}`, {
         params: { userEmail: user?.email },
       });
       if (res.data.deletedCount > 0) {

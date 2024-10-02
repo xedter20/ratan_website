@@ -47,7 +47,7 @@ export const router = createBrowserRouter([
         path: "/products/:id",
         element: <ProductDetails />,
         loader: ({ params }) =>
-          fetch(`${import.meta.env.VITE_REACT_APP_API_END_POINT}/products/${params.id}`),
+          fetch(`${import.meta.env.VITE_REACT_APP_API_END_POINT}/api/products/${params.id}`),
         errorElement: <ErrorPage />,
       },
       {
@@ -58,7 +58,7 @@ export const router = createBrowserRouter([
         path: "/search/:key",
         element: <Search />,
         loader: ({ params }) =>
-          fetch(`${import.meta.env.VITE_REACT_APP_API_END_POINT}/products/search/${params.key}`),
+          fetch(`${import.meta.env.VITE_REACT_APP_API_END_POINT}/api/products/search/${params.key}`),
         errorElement: <ErrorPage />,
       },
       {

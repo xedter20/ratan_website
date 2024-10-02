@@ -19,7 +19,7 @@ const CartProvider = ({ children }) => {
         const token = localStorage.getItem("access-token");
         if (token) {
           try {
-            const response = await axiosSecure.get("api/carts", {
+            const response = await axiosSecure.get("/carts", {
               params: { userEmail: user.email },
             });
             setCart(response.data);
@@ -48,7 +48,7 @@ const CartProvider = ({ children }) => {
   // Add a item to the cart or update the quantity if exists
   const handleCartItemSave = (item, setIsOpen) => {
     axiosSecure
-      .put("api/carts", item, { params: { userEmail: user.email } })
+      .put("/carts", item, { params: { userEmail: user.email } })
       .then((res) => {
         if (res.data.acknowledged) {
           toast.success("Added to cart!");
@@ -95,7 +95,7 @@ const CartProvider = ({ children }) => {
 
     axiosSecure
       .patch(
-        "api/carts/cart_quantity",
+        "/carts/cart_quantity",
         {
           product_id,
           user_email: user.email,
@@ -124,7 +124,7 @@ const CartProvider = ({ children }) => {
   const handleCartItemDel = (product_id) => {
     if (user && product_id) {
       axiosSecure
-        .delete("api/carts", {
+        .delete("/carts", {
           data: { product_id, email: user.email },
           params: { userEmail: user.email },
         })

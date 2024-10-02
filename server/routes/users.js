@@ -18,7 +18,7 @@ module.exports = () => {
         //   return res.send({ admin: false });
         // }
 
-        const adminEmail = 'dextermiranda441@gmail.com';
+        const adminEmail = 'admin_handihub@gmail.com';
         const isAdmin = email === adminEmail;
 
         res.send({ admin: isAdmin });

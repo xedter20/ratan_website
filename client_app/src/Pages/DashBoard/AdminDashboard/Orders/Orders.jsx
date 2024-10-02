@@ -33,7 +33,7 @@ const Orders = () => {
   // Get all orders
   const getAllOrders = async () => {
     try {
-      const res = await axiosSecure.get("api/admin/orders");
+      const res = await axiosSecure.get("/admin/orders");
       setOrders(res.data);
     } catch (err) {
       console.log(err);
@@ -47,7 +47,7 @@ const Orders = () => {
   // Update status of an order
   const handleStatusChange = async (orderId, newStatus) => {
     try {
-      const res = await axiosSecure.put(`api/admin/orders/${orderId}/status`, {
+      const res = await axiosSecure.put(`/admin/orders/${orderId}/status`, {
         status: newStatus,
       });
       if (res.data.modifiedCount > 0) {
@@ -102,7 +102,7 @@ const Orders = () => {
                       <td>{`${order.billingData.firstName} ${order.billingData.lastName}`}</td>
                       <td>{order.email}</td>
                       <td>{dateFormatMDY(order.date)}</td>
-                      <td>${formatPrice(order.totalPrice)}</td>
+                      <td>{formatPrice(order.totalPrice)}</td>
                       <td>{order.quantity}</td>
                       <td>
                         <p

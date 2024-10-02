@@ -16,7 +16,7 @@ const ProductDetails = () => {
     const fetchData = async () => {
       try {
         const reviewsResponse = await axios.get(
-          "http://localhost:5000/api/reviews",
+          `/reviews`,
           {
             params: { product_id: _id },
           },

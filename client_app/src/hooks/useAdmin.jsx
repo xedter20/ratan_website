@@ -15,9 +15,11 @@ const useAdmin = () => {
 
         try {
           const response = await axiosSecure.get(
-            `api/users/admin/${user.email}`,
+            `users/admin/${user.email}`,
             { params: { userEmail: user.email } },
           );
+
+          console.log({ dex: response.data })
           setIsAdmin(response.data.admin);
           setAdminLoading(false);
           return;

@@ -70,7 +70,7 @@ const MyOrders = () => {
                     <div>
                       <motion.p
                         whileTap={{ scale: 0.9 }}
-                        className="w-24 cursor-pointer truncate text-lg transition-all hover:text-primary"
+                        className="w-24 cursor-pointer text-lg transition-all hover:text-primary"
                       >
                         <Link to={`/products/${item.product_id}`}>
                           {item.title}
@@ -87,7 +87,7 @@ const MyOrders = () => {
                       Qty: {item.quantity}
                     </p>
                     <p className="hidden w-fit min-w-14 truncate pt-1 text-sm text-gray-400 md:block">
-                      $ {formatPrice(item.quantity * item.price)}
+                      {formatPrice(item.quantity * item.price)}
                     </p>
                     <p
                       className={`h-fit w-24 truncate rounded-full p-1 text-center text-xs capitalize ${order.status === "pending"

@@ -3,8 +3,11 @@ import axios from "axios";
 
 const useAxiosSecure = () => {
   const axiosSecure = useMemo(() => {
+
+    let baseURL = `${import.meta.env.VITE_REACT_APP_API_END_POINT}/api`;
+
     const instance = axios.create({
-      baseURL: "http://localhost:5000",
+      baseURL: baseURL
     });
 
     instance.interceptors.request.use((config) => {
