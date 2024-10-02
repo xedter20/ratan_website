@@ -1,3 +1,5 @@
+
+import { useState } from "react";
 import { Helmet } from "react-helmet";
 import { AiOutlineStock } from "react-icons/ai";
 import { IoCubeSharp } from "react-icons/io5";
@@ -17,8 +19,18 @@ import {
   Cell,
 } from "recharts";
 import { bardata, pieColors, pieData } from "../../../../assets/data/chartData";
+import { formatPrice } from "../../../../utils/formatPrice";
 
+
+
+import Datepicker from "react-tailwindcss-datepicker";
 const Dashboard = () => {
+  const [value, setValue] = useState({
+    startDate: null,
+    endDate: null
+  });
+
+
   return (
     <section className="h-full w-full bg-[#f3f4fa] px-[4%] pt-7 md:px-5">
       {/* Change page title */}
@@ -26,27 +38,32 @@ const Dashboard = () => {
         <title>Dashboard - HandiHub Shop</title>
       </Helmet>
       {/* cards container */}
+
+      <div className="grid grid-cols-6 gap-4 mb-5">
+        <div>
+          <Datepicker
+
+            placeholder="Select Date" value={value} onChange={newValue => setValue(newValue)} />
+        </div>
+      </div>
+
       <div className="grid grid-cols-12 gap-6">
+
+
         <div className="col-span-12 flex justify-between gap-2 bg-white p-8 shadow-sm lg:col-span-4">
+
           <div>
             <IoCubeSharp size={40} color="#ff5630" />
             {/* <p className="mt-6 text-sm text-gray-400">Since Last Month</p> */}
           </div>
           <div>
             <p className="mb-2 text-sm text-gray-400">Total Orders</p>
-            <h3 className="text-[27px] font-medium">1350</h3>
+
+
+            <h3 className="text-[27px] font-medium">{formatPrice(100)}</h3>
           </div>
         </div>
-        <div className="col-span-12 flex justify-between gap-2 bg-white p-8 shadow-sm lg:col-span-4">
-          <div>
-            <TfiReceipt size={40} color="#b88e2f" />
-            {/* <p className="mt-6 text-sm text-gray-400">Since Last Month</p> */}
-          </div>
-          <div>
-            <p className="mb-2 text-sm text-gray-400">Total Cost</p>
-            <h3 className="text-[27px] font-medium">$24,358</h3>
-          </div>
-        </div>
+
         <div className="col-span-12 flex justify-between gap-2 bg-white p-8 shadow-sm lg:col-span-4">
           <div>
             <MdPoll size={40} color="#36b37e" />
@@ -54,7 +71,7 @@ const Dashboard = () => {
           </div>
           <div>
             <p className="mb-2 text-sm text-gray-400">Total Sales</p>
-            <h3 className="text-[27px] font-medium">$52,365</h3>
+            <h3 className="text-[27px] font-medium">{formatPrice(500)}</h3>
           </div>
         </div>
       </div>
@@ -63,11 +80,11 @@ const Dashboard = () => {
       <div className="max-h-[calc(100vh-5 00px)] grid h-full w-full grid-cols-12 gap-6 lg:max-h-[calc(100vh-300px)]">
         {/* Bar Chart */}
         <div className="col-span-12 mt-6 h-full max-h-[calc(100vh-500px)] w-full bg-white p-4 lg:col-span-8 lg:max-h-[calc(100vh-300px)]">
-          <p className="mb-2 text-sm">Total Growth</p>
+          {/* <p className="mb-2 text-sm">Total Growth</p>
           <h4 className="mb-8 flex items-center gap-1 text-xl font-semibold">
             <AiOutlineStock size={22} className="text-green-400" />
-            $2,324
-          </h4>
+            2,324
+          </h4> */}
           {/* Bar Chart */}
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
@@ -86,9 +103,9 @@ const Dashboard = () => {
               <YAxis />
               <Tooltip />
               <Legend />
-              <Bar dataKey="Investement" stackId="a" fill="#0088fe" />
-              <Bar dataKey="Profit" stackId="a" fill="#36b37e" />
-              <Bar dataKey="Loss" fill="#ff5630" />
+
+              <Bar dataKey="Sales" stackId="a" fill="#36b37e" />
+
             </BarChart>
           </ResponsiveContainer>
         </div>
@@ -123,7 +140,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-    </section>
+    </section >
   );
 };
 

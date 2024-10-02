@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { NavLink, Outlet, useNavigate, Link } from "react-router-dom";
 import logo from "../assets/logo/logo.png";
 import { LuLayoutDashboard } from "react-icons/lu";
-import { BsBox2, BsCart3, BsList, BsPower } from "react-icons/bs";
+import { BsBox2, BsCart3, BsList, BsPower, BsMessenger } from "react-icons/bs";
 import MobileDashNav from "../components/MobileDashNav/MobileDashNav";
 import useAdmin from "../hooks/useAdmin";
 import useAuth from "../hooks/useAuth";
@@ -128,6 +128,25 @@ const AdminLayout = () => {
                     />
                   </span>
                   Products
+                </>
+              )}
+            </NavLink>
+            <NavLink
+              to="https://dashboard.tawk.to/#/chat"
+              target="_blank" rel="noopener noreferrer"
+              className={({ isActive }) =>
+                `group flex items-center gap-2 px-5 py-4 ${isActive && "bg-gray-700 bg-opacity-25"}`
+              }
+            >
+              {({ isActive }) => (
+                <>
+                  <span>
+                    <BsMessenger
+                      size={18}
+                      className={`transition-all duration-200 ${isActive ? "text-primary" : "group-hover:text-primary"}`}
+                    />
+                  </span>
+                  Message
                 </>
               )}
             </NavLink>
