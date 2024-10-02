@@ -91,7 +91,7 @@ const AdminLayout = () => {
                       className={`transition-all duration-200 ${isActive ? "text-primary" : "group-hover:text-primary"}`}
                     />
                   </span>
-                  Dashboards
+                  Dashboard
                 </>
               )}
             </NavLink>
