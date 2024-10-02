@@ -78,10 +78,10 @@ const AddToCartModal = ({ isOpen, setIsOpen, selectedProduct }) => {
                     />
                   </DialogTitle>
                   {/* Size Selection Buttons */}
-                  <div className="mt-5 text-sm">
+                  {/* <div className="mt-5 text-sm">
                     <p className="text-cadetGray">Size</p>
                     <div className="mt-3 flex gap-4">
-                      {/* {sizes.map((itemSize, i) => (
+                      {sizes.map((itemSize, i) => (
                         <button
                           onClick={() => setSize(itemSize)}
                           key={i}
@@ -89,23 +89,23 @@ const AddToCartModal = ({ isOpen, setIsOpen, selectedProduct }) => {
                         >
                           {itemSize}
                         </button>
-                      ))} */}
+                      ))}
                     </div>
-                  </div>
+                  </div> */}
                   {/* Color Selection Buttons */}
-                  <div className="mt-5 text-sm">
+                  {/* <div className="mt-5 text-sm">
                     <p className="text-cadetGray">Color</p>
                     <div className="mt-3 flex gap-4">
-                      {/* {colors.map((itemColor, i) => (
+                      {colors.map((itemColor, i) => (
                         <div
                           key={i}
                           onClick={() => setColor(itemColor)}
                           className={`size-8 rounded-full ${itemColor === color && "border-4 bg-slate-900"}`}
                           style={{ backgroundColor: itemColor }}
                         ></div>
-                      ))} */}
+                      ))}
                     </div>
-                  </div>
+                  </div> */}
 
                   <div className="mt-5 flex items-center gap-4">
                     {/* Quantity Increase/Decrease */}

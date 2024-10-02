@@ -193,7 +193,7 @@ const ProductOverview = ({ product, reviews }) => {
               Add To Cart
             </motion.button>
             {/* Compare button */}
-            <motion.button
+            {/* <motion.button
               whileTap={{ scale: 0.9 }}
               onClick={toggleFavourite}
               className="group flex items-center justify-center gap-2.5 rounded-[10px] border border-black py-2 transition-colors hover:border-transparent hover:bg-primary hover:text-white md:w-full md:px-12 xl:max-w-[215px] xl:py-[14px]"
@@ -204,7 +204,7 @@ const ProductOverview = ({ product, reviews }) => {
                 <BsHeart />
               )}
               <span className="lg:text-lg xl:text-xl">Favourite</span>
-            </motion.button>
+            </motion.button> */}
           </div>
 
           {/* <div className="border-paleGray border-t pt-10">

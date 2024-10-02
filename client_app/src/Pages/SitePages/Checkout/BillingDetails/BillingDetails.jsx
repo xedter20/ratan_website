@@ -51,23 +51,23 @@ const BillingDetails = () => {
             onSubmit={handleSubmit(onSubmit)}
             className="w-full space-y-9 md:w-1/2 md:px-16"
           >
-            <div className="flex gap-3 md:gap-7">
-              <div>
+            <div className="">
+              <div className="mb-3">
                 <label
                   htmlFor="firstName"
-                  className={`${errors.firstName && "text-red-600"} font-medium" mb-5 inline-block`}
+                  className={`${errors.firstName && "text-red-600"} font-medium mb-5 inline-block`}
                 >
                   First Name {errors.firstName && "*"}
                 </label>
                 <br />
                 <input
-                  className="border-cadetGray h-[75px] w-full rounded-[10px] border px-5 outline-none"
+                  className="border-cadetGray h-[50px] w-full rounded-[10px] border px-5 outline-none"
                   type="text"
                   id="firstName"
                   {...register("firstName", { required: true })}
                 />
               </div>
-              <div>
+              <div className="mb-3">
                 <label
                   htmlFor="lastName"
                   className={`${errors.lastName && "text-red-600"} font-medium" mb-5 inline-block`}
@@ -76,62 +76,30 @@ const BillingDetails = () => {
                 </label>
                 <br />
                 <input
-                  className="border-cadetGray h-[75px] w-full rounded-[10px] border px-5 outline-none"
+                  className="border-cadetGray h-[50px] w-full rounded-[10px] border px-5 outline-none"
                   type="text"
                   id="lastName"
                   {...register("lastName", { required: true })}
                 />
               </div>
-              {/* <div>
-              <label
-                htmlFor="country"
-                className="mb-5 inline-block font-medium"
-              >
-                Country
-              </label>
-              <select
-                id="country"
-                className="border-cadetGray h-[75px] w-full rounded-[10px] border px-5"
-                {...register("country", { required: true })}
-              >
-                <option value="usa">USA</option>
-                <option value="russia">Russia</option>
-                <option value="bangladesh">Bangladesh</option>
-                <option value="china">China</option>
-                <option value="france">France</option>
-              </select>
-            </div> */}
-              <div>
+
+              <div className="mb-3">
                 <label
-                  htmlFor="city"
-                  className={`${errors.city && "text-red-600"} font-medium" mb-5 inline-block`}
+                  htmlFor="complete_address"
+                  className={`${errors.complete_address && "text-red-600"} font-medium" mb-5 inline-block`}
                 >
-                  City {errors.city && "*"}
+                  Complete Address {errors.complete_address && "*"}
                 </label>
                 <br />
                 <input
-                  className="border-cadetGray h-[75px] w-full rounded-[10px] border px-5 outline-none"
+                  className="border-cadetGray h-[50px] w-full rounded-[10px] border px-5 outline-none"
                   type="text"
-                  id="city"
-                  {...register("city", { required: true })}
+                  id="complete_address"
+                  {...register("complete_address", { required: true })}
                 />
               </div>
-              <div>
-                <label
-                  htmlFor="street"
-                  className={`${errors.street && "text-red-600"} font-medium" mb-5 inline-block`}
-                >
-                  Street address {errors.street && "*"}
-                </label>
-                <br />
-                <input
-                  className="border-cadetGray h-[75px] w-full rounded-[10px] border px-5 outline-none"
-                  type="text"
-                  id="street"
-                  {...register("street", { required: true })}
-                />
-              </div>
-              <div>
+
+              <div className="mb-3">
                 <label
                   htmlFor="phone"
                   className={`${errors.phone && "text-red-600"} font-medium" mb-5 inline-block`}
@@ -140,15 +108,16 @@ const BillingDetails = () => {
                 </label>
                 <br />
                 <input
-                  className="border-cadetGray h-[75px] w-full rounded-[10px] border px-5 outline-none"
+                  className="border-cadetGray h-[50px] w-full rounded-[10px] border px-5 outline-none"
                   type="tel"
                   id="phone"
                   {...register("phone", { required: true })}
                 />
               </div>
-              <div>
+              <div className="mt-4">
                 <textarea
-                  className="border-cadetGray h-[75px] w-full rounded-[10px] border px-5 py-6 outline-none"
+                  rows="10"
+                  className="border-cadetGray h-[50px] w-full rounded-[10px] border px-5 py-6 outline-none"
                   id="add_info"
                   placeholder="Additional information"
                   {...register("add_info")}

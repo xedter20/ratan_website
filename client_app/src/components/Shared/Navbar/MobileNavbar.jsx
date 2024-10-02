@@ -49,8 +49,7 @@ const MobileNavbar = ({
       <div ref={menuRef} className="min-h-screen w-3/4 bg-white">
         <div className="flex items-center justify-between bg-[#fcf8f3] px-[4%] py-4">
           <p className="text-lg font-medium">
-            Browse
-            <span className="ml-1 text-2xl">UrbanAura</span>
+            <span className="ml-1 text-2xl">HandiHub</span>
           </p>
           <BsXLg
             onClick={() => setShowMenu(false)}

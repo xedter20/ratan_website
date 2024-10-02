@@ -105,7 +105,7 @@ const CartDetails = () => {
                             </div>
                           </td>
                           <td>
-                            <p>${formatPrice(item.quantity * item.price)}</p>
+                            <p>{formatPrice(item.quantity * item.price)}</p>
                           </td>
                           <td>
                             <BiSolidTrashAlt
@@ -128,7 +128,7 @@ const CartDetails = () => {
               <p className="mb-2 md:mb-8">
                 <span className="mr-16 font-medium">Subtotal</span>
                 <span className="text-cadetGray">
-                  ${formatPrice(totalPrice)}
+                  {formatPrice(totalPrice)}
                 </span>
               </p>
               <p className="mb-8 md:mb-10">
