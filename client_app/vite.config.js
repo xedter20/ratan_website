@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   build: {
     rollupOptions: {
-      external: ["formik"], // Add formik here to externalize it
+      external: ["formik", "yup"], // Add formik here to externalize it
     },
   },
 });
