@@ -11,7 +11,7 @@ import useCart from "../../../../hooks/useCart";
 import useFavourite from "../../../../hooks/useFavourite";
 
 
-import { fabric } from 'fabric'; // Ensure you're using Fabric.js v6
+// import { fabric } from 'fabric'; // Ensure you're using Fabric.js v6
 
 const sizes = ["l", "xl", "xs"];
 const colors = ["#816dfa", "black", "#b88e2f"];
@@ -74,55 +74,55 @@ const ProductOverview = ({ product, reviews }) => {
 
 
 
-  const canvasRef = useRef(null); // Reference to the Fabric.js canvas
-  const [canvas, setCanvas] = useState(null); // State to store the Fabric.js canvas instance
-  const [basket, setBasket] = useState(null); // State to store the basket image object
+  // const canvasRef = useRef(null); // Reference to the Fabric.js canvas
+  // const [canvas, setCanvas] = useState(null); // State to store the Fabric.js canvas instance
+  // const [basket, setBasket] = useState(null); // State to store the basket image object
 
-  const [tshirt, setTshirt] = useState(null); // Store the T-shirt image object
+  // const [tshirt, setTshirt] = useState(null); // Store the T-shirt image object
 
 
   // Initialize Fabric.js Canvas
-  useEffect(() => {
-    const fabricCanvas = new fabric.Canvas('tshirtCanvas');
-    setCanvas(fabricCanvas);
-    // Function to resize the canvas to match the container size
-    const resizeCanvas = () => {
-      const container = canvasRef.current;
-      const containerWidth = container.offsetWidth;
-      const containerHeight = container.offsetHeight;
+  // useEffect(() => {
+  //   const fabricCanvas = new fabric.Canvas('tshirtCanvas');
+  //   setCanvas(fabricCanvas);
+  //   // Function to resize the canvas to match the container size
+  //   const resizeCanvas = () => {
+  //     const container = canvasRef.current;
+  //     const containerWidth = container.offsetWidth;
+  //     const containerHeight = container.offsetHeight;
 
-      // Set canvas size to container's dimensions
-      fabricCanvas.setWidth(containerWidth);
-      fabricCanvas.setHeight(containerHeight);
+  //     // Set canvas size to container's dimensions
+  //     fabricCanvas.setWidth(containerWidth);
+  //     fabricCanvas.setHeight(containerHeight);
 
-      // Redraw canvas content if needed
-      fabricCanvas.renderAll();
-    };
+  //     // Redraw canvas content if needed
+  //     fabricCanvas.renderAll();
+  //   };
 
-    // Initial resize on load
-    resizeCanvas();
-    // Resize the canvas when the window size changes
-    window.addEventListener('resize', resizeCanvas);
+  //   // Initial resize on load
+  //   resizeCanvas();
+  //   // Resize the canvas when the window size changes
+  //   window.addEventListener('resize', resizeCanvas);
 
-    fabric.Image.fromURL(mainImage, (img) => {
-      img.crossOrigin = 'anonymous'; // Important to avoid CORS issues
-      img.set({
+  //   fabric.Image.fromURL(mainImage, (img) => {
+  //     img.crossOrigin = 'anonymous'; // Important to avoid CORS issues
+  //     img.set({
 
-        // right: 0,
-        // top: 50,
-        // scaleX: 3,
-        // scaleY: 3,
-      });
-      fabricCanvas.add(img);
-      setTshirt(img); // Store the T-shirt image object
-    }, { crossOrigin: 'anonymous' });
+  //       // right: 0,
+  //       // top: 50,
+  //       // scaleX: 3,
+  //       // scaleY: 3,
+  //     });
+  //     fabricCanvas.add(img);
+  //     setTshirt(img); // Store the T-shirt image object
+  //   }, { crossOrigin: 'anonymous' });
 
-    return () => {
+  //   return () => {
 
-      window.removeEventListener('resize', resizeCanvas);
-      fabricCanvas.dispose(); // Dispose Fabric.js instance
-    };
-  }, [mainImage,]);
+  //     window.removeEventListener('resize', resizeCanvas);
+  //     fabricCanvas.dispose(); // Dispose Fabric.js instance
+  //   };
+  // }, [mainImage,]);
   // Function to change T-shirt color using a filter
 
   const handleColorChange = (event) => {
@@ -186,19 +186,19 @@ const ProductOverview = ({ product, reviews }) => {
               </div>
 
               {/* Canvas Container */}
-              <div ref={canvasRef} className="w-full h-full">
+              {/* <div ref={canvasRef} className="w-full h-full">
                 <canvas id="tshirtCanvas" className="w-full h-full"></canvas>
-              </div>
+              </div> */}
             </div>
             {/* <div ref={canvasRef} className="w-full h-screen">
               <canvas id="tshirtCanvas" className="w-full h-full"></canvas>
             </div> */}
-            {/* <img
+            <img
               className="h-96 w-full rounded-[10px] object-cover object-center sm:h-[450px] md:h-[500px] md:max-h-[500px] md:w-[420px] md:max-w-[420px]"
               src={mainImage}
               alt={`image of ${title}`}
               loading="lazy"
-            /> */}
+            />
           </div>
         </div>
 
