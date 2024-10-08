@@ -39,7 +39,7 @@ const MyTextInput = ({
         }
         {label && (
           <label
-            className={`block mb-2 text-neutral-900 text-left text-white${labelFor ? 'cursor-pointer' : ''
+            className={`block mb-2 text-neutral-900 text-left ${labelFor ? 'cursor-pointer' : ''
               }`}>
             {label}
           </label>
