@@ -8,7 +8,7 @@ const RelatedProducts = ({ category }) => {
 
   const getRelatedProducts = () => {
     axios
-      .get(`${import.meta.env.VITE_REACT_APP_API_END_POINT}/products?category=${category}`)
+      .get(`${import.meta.env.VITE_REACT_APP_API_END_POINT}/api/products?category=${category}`)
       .then((res) => setProducts(res.data))
       .catch((err) => console.error(err));
   };

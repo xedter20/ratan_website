@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Rating } from "@smastrom/react-rating";
 import { motion } from "framer-motion";
 import { AiFillTwitterCircle } from "react-icons/ai";
@@ -9,6 +9,9 @@ import { calculateAvgRating } from "../../../../utils/calculateAvgRating";
 import useAuth from "../../../../hooks/useAuth";
 import useCart from "../../../../hooks/useCart";
 import useFavourite from "../../../../hooks/useFavourite";
+
+
+import { fabric } from 'fabric'; // Ensure you're using Fabric.js v6
 
 const sizes = ["l", "xl", "xs"];
 const colors = ["#816dfa", "black", "#b88e2f"];
@@ -53,6 +56,8 @@ const ProductOverview = ({ product, reviews }) => {
       size,
       color,
     };
+
+    console.log({ item })
     // save new item or update quantity of item if item exists in the cart
     handleCartItemSave(item);
   };
@@ -67,12 +72,86 @@ const ProductOverview = ({ product, reviews }) => {
     deleteFavouriteItem(_id, user.email);
   };
 
+
+
+  const canvasRef = useRef(null); // Reference to the Fabric.js canvas
+  const [canvas, setCanvas] = useState(null); // State to store the Fabric.js canvas instance
+  const [basket, setBasket] = useState(null); // State to store the basket image object
+
+  const [tshirt, setTshirt] = useState(null); // Store the T-shirt image object
+
+
+  // Initialize Fabric.js Canvas
+  useEffect(() => {
+    const fabricCanvas = new fabric.Canvas('tshirtCanvas');
+    setCanvas(fabricCanvas);
+    // Function to resize the canvas to match the container size
+    const resizeCanvas = () => {
+      const container = canvasRef.current;
+      const containerWidth = container.offsetWidth;
+      const containerHeight = container.offsetHeight;
+
+      // Set canvas size to container's dimensions
+      fabricCanvas.setWidth(containerWidth);
+      fabricCanvas.setHeight(containerHeight);
+
+      // Redraw canvas content if needed
+      fabricCanvas.renderAll();
+    };
+
+    // Initial resize on load
+    resizeCanvas();
+    // Resize the canvas when the window size changes
+    window.addEventListener('resize', resizeCanvas);
+
+    fabric.Image.fromURL(mainImage, (img) => {
+      img.crossOrigin = 'anonymous'; // Important to avoid CORS issues
+      img.set({
+
+        // right: 0,
+        // top: 50,
+        // scaleX: 3,
+        // scaleY: 3,
+      });
+      fabricCanvas.add(img);
+      setTshirt(img); // Store the T-shirt image object
+    }, { crossOrigin: 'anonymous' });
+
+    return () => {
+
+      window.removeEventListener('resize', resizeCanvas);
+      fabricCanvas.dispose(); // Dispose Fabric.js instance
+    };
+  }, [mainImage,]);
+  // Function to change T-shirt color using a filter
+
+  const handleColorChange = (event) => {
+    const selectedColor = event.target.value;
+    setColor(selectedColor);
+
+    // If there's a T-shirt image, set its background color
+    if (tshirt) {
+
+      console.log({ color })
+      tshirt.filters = [
+        new fabric.Image.filters.BlendColor({
+          color: color,
+          mode: 'multiply', // You can experiment with other blend modes like 'add', 'subtract'
+          alpha: 0.5,       // Adjust transparency (0.0 to 1.0)
+        }),
+      ];
+      tshirt.applyFilters(); // Apply the filter
+      canvas.renderAll(); // Re-render canvas to display the new color
+    }
+  };
+
   return (
     <>
       <div className="justify-between pb-16 pt-8 md:flex md:gap-6 lg:gap-10 xl:gap-20">
         {/* gallery container */}
         <div className="flex flex-col-reverse gap-8 md:justify-end lg:flex-row lg:gap-x-4">
           {/* thumbnail */}
+          {/* <canvas id="tshirtCanvas" ref={canvasRef} width="1800" height="500"></canvas> */}
           <div className="flex justify-evenly lg:flex-col lg:justify-start lg:gap-8">
             {gallery &&
               gallery.length > 0 &&
@@ -91,13 +170,35 @@ const ProductOverview = ({ product, reviews }) => {
               })}
           </div>
           {/* main image */}
-          <div>
-            <img
+
+
+          <div className="">
+
+            <div className="w-full h-screen flex flex-col items-center">
+              {/* Color Picker */}
+              <div className="mb-4">
+                <label className="mr-2">Customize color: </label>
+                <input
+                  type="color"
+                  value={color}
+                  onChange={handleColorChange}
+                />
+              </div>
+
+              {/* Canvas Container */}
+              <div ref={canvasRef} className="w-full h-full">
+                <canvas id="tshirtCanvas" className="w-full h-full"></canvas>
+              </div>
+            </div>
+            {/* <div ref={canvasRef} className="w-full h-screen">
+              <canvas id="tshirtCanvas" className="w-full h-full"></canvas>
+            </div> */}
+            {/* <img
               className="h-96 w-full rounded-[10px] object-cover object-center sm:h-[450px] md:h-[500px] md:max-h-[500px] md:w-[420px] md:max-w-[420px]"
               src={mainImage}
               alt={`image of ${title}`}
               loading="lazy"
-            />
+            /> */}
           </div>
         </div>
 

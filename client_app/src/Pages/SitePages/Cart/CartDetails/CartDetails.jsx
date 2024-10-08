@@ -22,6 +22,8 @@ const CartDetails = () => {
     }
   };
 
+
+  console.log({ cart })
   return (
     <>
       <div className="px-[4%] py-[72px] md:px-[7%] lg:flex lg:gap-8">

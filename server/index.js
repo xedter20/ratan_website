@@ -76,11 +76,11 @@ async function run() {
     });
 
     // JWT Token API
-    app.post('/jwt', (req, res) => {
+    app.post('/api/jwt', (req, res) => {
       const user = req.body;
 
       console.log({ user });
-      const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
+      const token = jwt.sign(user, 'secret', {
         expiresIn: '30d'
       });
       res.send({ token });
