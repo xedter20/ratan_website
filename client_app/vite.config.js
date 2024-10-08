@@ -9,4 +9,7 @@ export default defineConfig({
       external: ["formik", "yup", "fabric"], // Add formik here to externalize it
     },
   },
+  optimizeDeps: {
+    include: ["fabric"],
+  },
 });
