@@ -6,7 +6,7 @@ export default {
   plugins: [react()],
   build: {
     rollupOptions: {
-      external: ["formik"],
+      external: ["formik", "yup"],
     },
   },
 };
