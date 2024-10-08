@@ -37,13 +37,13 @@ const MyTextInput = ({
         {label && <label className={`mt-2 font-bold text-neutral-600  block mb-2 ${labelColor}`}>
           {label}</label>
         }
-        {/* {label && (
+        {label && (
           <label
             className={`block mb-2 text-neutral-900 text-left text-white${labelFor ? 'cursor-pointer' : ''
               }`}>
             {label}
           </label>
-        )} */}
+        )}
 
         <div className="relative">
           <input
